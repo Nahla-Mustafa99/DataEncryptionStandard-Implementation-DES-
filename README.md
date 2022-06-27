@@ -1,8 +1,8 @@
 # DataEncryptionStandard-Implementation-DES-
 This repository contains an optimized Sw iplementation of Data Encryption Standard (Standard DES) algorithm, which:
-- encrypts data of size of 64 bits ,which means 64 bits of plain text go as the input to DES, which produces 64 bits of ciphertext. 
-- The same algorithm and key are used for encryption and decryption, with minor differences.
-- The number of CPU cycles taken for each process will be calculated.
+- Encrypts data of size of 64 bits ,which means 64 bits of plain text go as the input to DES, which produces 64 bits of ciphertext. 
+- Use the same algorithm and key for encryption and decryption, with minor differences.
+- Calculates The number of CPU cycles taken for each process.
 
 #  _Requirements_
 - g++ compiler need to be installed.
