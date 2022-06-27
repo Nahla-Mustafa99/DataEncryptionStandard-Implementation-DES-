@@ -14,6 +14,6 @@ This repository contains an optimized Sw iplementation of Data Encryption Standa
 - To encrypt use : output.exe encrypt [PlainText] [Key] 
                    ,ex: output.exe encrypt 7A6C731D22347676 1323445A6D788381
 - To decrypt use : output.exe decrypt [CipherText] [Key]
-                 ,ex : output.exe decrypt 7DB033DD14D6F975 1323445A6D788381![Screenshot 2022-06-27 164804]
+                 ,ex : output.exe decrypt 7DB033DD14D6F975 1323445A6D788381!
 ## output screen samples 
 (https://user-images.githubusercontent.com/75391814/175969935-b9619485-f565-482c-b144-bdc706e5d244.jpg)
