@@ -316,11 +316,6 @@ string To_Hex(unsigned long long num)
 int main(int argc, char* argv[])
 {
     
-    //string a;
-    //std::cin >> a;
-      // for (int i = 1; i < 4; ++i)
-       //argv[i]
-    //const char *charac = a.c_str ();
     string a=argv[2]; 
     const char* charac = a.c_str();
    // u64 input = read_u64_hex(argv[2]);
@@ -330,8 +325,7 @@ int main(int argc, char* argv[])
     const char* charac1 = a.c_str();
     u64 Key = read_u64_hex(charac1);
     string operation = (argv[1]);
-    ///////////////////////////////////////
-    //u64 Key = 0xAABB09182736CCDD;
+    //////////////////////////////////////
     u64 ki[16];
     u64 k;
     unsigned int right, left;
@@ -360,8 +354,7 @@ int main(int argc, char* argv[])
     u64 cipher = 0;
     u64 plain = 0;
     string output = "";
-    //string operation;
-    //cin >> operation;
+ // 
     long long t1 = __rdtsc();;
     if (operation == "encrypt")
     {				//ENCRYPT // input in the scope
@@ -437,7 +430,44 @@ int main(int argc, char* argv[])
             cout << (t4 - t3);
         cout << endl;
     }
-
+    // DECRYPT
+ if (operation == "decrypt")
+    {				
+        unsigned int temp11, temp22, c_right, c_left;
+        //split
+        plain = input;		//cipher
+        plain = initial_permutation(plain);
+        devide(64, plain, &c_right, &c_left);
+        //swap
+        temp11 = c_right;
+        temp22 = c_left;
+        c_right = temp22;
+        c_left = temp11;
+        //rounds
+        for (int i = 15; i >= 0; i--)
+        {
+            temp11 = c_right;
+            temp22 = c_left;
+            c_right = temp22;
+            c_left =
+                temp11 ^
+                (permutation
+                (s_box(expansion_pemutation(u64(temp22)) ^ ki[i])));
+            temp11 = 0;
+            temp22 = 0;
+        }
+        plain = 0;
+        plain = (u64(c_left) << 32) | u64(c_right);
+        plain = inverse_permutation(plain);
+        long long t4 = __rdtsc();
+        output = To_Hex(plain);
+        cout << "plain: ";
+            cout << output;
+        cout << endl;
+        cout << "cycles: ";
+            cout << (t4 - t3);
+        cout << endl;
+    }
     //string h;
 
     return 0;
